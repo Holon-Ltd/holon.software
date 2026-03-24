@@ -3,9 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
+    "dev": "bun run dev:web & bun run dev:api",
+    "dev:web": "astro dev",
     "dev:mobile": "astro dev --host",
-    "dev:api": "bun --watch server/index.js",
+    "dev:api": "lsof -ti:3002 | xargs kill -9 2>/dev/null; bun --watch server/index.js",
     "start:api": "bun server/index.js",
     "build": "astro build",
     "preview": "astro preview",

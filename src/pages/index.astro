@@ -6,7 +6,9 @@ const title = "Holon Software | Software systems for the age of AI";
 const description =
   "Holon Software builds dependable software systems for the age of AI, with a focus on robust architecture, integration, and long-term maintainability.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
-const contactEndpoint = import.meta.env.PUBLIC_CONTACT_API_URL || "/api/contact";
+const contactEndpoint =
+  import.meta.env.PUBLIC_CONTACT_API_URL ||
+  (import.meta.env.DEV ? "http://localhost:3002/api/contact" : "/api/contact");
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -102,7 +104,7 @@ const structuredData = {
               Software systems for the age of AI
             </h1>
             <p class="mt-6 max-w-2xl text-[clamp(1.05rem,1.6vw,1.3rem)] leading-8 text-slate-200/85">
-              We design and build dependable software systems for AI-native products,
+              We design and build cutting edge software systems for AI-native products,
               combining strong architecture, thoughtful integration, and an emphasis on
               clarity that lasts.
             </p>
@@ -190,21 +192,37 @@ const structuredData = {
               <input name="website" tabindex="-1" autocomplete="off" />
             </label>
           </div>
-          <div class="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <button
-              id="contact-submit"
-              type="submit"
-              class="inline-flex w-full items-center justify-center rounded-full bg-sky-300 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-slate-950 transition hover:bg-sky-200 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
-            >
-              Send message
-            </button>
-            <span
+          <div class="w-full space-y-3">
+            <div class="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+              <button
+                id="contact-submit"
+                type="submit"
+                class="inline-flex w-full items-center justify-center rounded-full bg-sky-300 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-slate-950 transition hover:bg-sky-200 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+              >
+                Send message
+              </button>
+            </div>
+            <div
               id="contact-status"
-              class="text-sm leading-6 text-slate-300/78"
+              class="hidden w-full rounded-2xl border px-4 py-3 text-sm font-medium leading-6"
               aria-live="polite"
-            ></span>
+            ></div>
           </div>
         </form>
+        <div
+          id="contact-success"
+          class="hidden w-full pt-2 sm:pt-5"
+          aria-live="polite"
+        >
+          <div class="w-full rounded-3xl border border-emerald-300/25 bg-emerald-400/12 px-5 py-6 text-emerald-50 sm:px-6 sm:py-7">
+            <p class="text-[1.25rem] font-semibold leading-7 tracking-[-0.02em] sm:text-[1.45rem]">
+              Message sent successfully.
+            </p>
+            <p class="mt-3 text-base leading-7 text-emerald-50/92">
+              Your message has been sent. A copy should arrive in your inbox shortly.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
     <script>
@@ -215,9 +233,35 @@ const structuredData = {
       const contactNameInput = document.getElementById("contact-name");
       const contactSubmit = document.getElementById("contact-submit");
       const contactStatus = document.getElementById("contact-status");
+      const contactSuccess = document.getElementById("contact-success");
       const holonDefinitionTrigger = document.getElementById("holon-definition-trigger");
       const holonDefinitionPopup = document.getElementById("holon-definition-popup");
       const holonDefinitionClose = document.getElementById("holon-definition-close");
+
+      const setContactStatus = (message, state = "idle") => {
+        if (!contactStatus) return;
+
+        if (!message) {
+          contactStatus.textContent = "";
+          contactStatus.className =
+            "hidden w-full rounded-2xl border px-4 py-3 text-sm font-medium leading-6";
+          return;
+        }
+
+        const stateClasses = {
+          sending:
+            "block w-full rounded-2xl border border-sky-300/20 bg-sky-300/10 px-4 py-3 text-sm font-medium leading-6 text-sky-50",
+          success:
+            "block w-full rounded-2xl border border-emerald-300/25 bg-emerald-400/12 px-4 py-3 text-base font-semibold leading-6 text-emerald-50",
+          error:
+            "block w-full rounded-2xl border border-rose-300/25 bg-rose-400/12 px-4 py-3 text-sm font-medium leading-6 text-rose-50",
+        };
+
+        contactStatus.textContent = message;
+        contactStatus.className =
+          stateClasses[state] ||
+          "block w-full rounded-2xl border border-white/12 bg-white/5 px-4 py-3 text-sm font-medium leading-6 text-slate-100";
+      };
 
       const setContactModalOpen = (isOpen) => {
         if (!contactModal || !contactModalTrigger) return;
@@ -228,6 +272,9 @@ const structuredData = {
         document.body.style.overflow = isOpen ? "hidden" : "";
 
         if (isOpen && contactNameInput instanceof HTMLInputElement) {
+          contactForm?.classList.remove("hidden");
+          contactSuccess?.classList.add("hidden");
+          setContactStatus("", "idle");
           window.setTimeout(() => {
             contactNameInput.focus();
           }, 20);
@@ -269,7 +316,7 @@ const structuredData = {
 
           contactSubmit.disabled = true;
           contactSubmit.textContent = "Sending...";
-          contactStatus.textContent = "Sending your message...";
+          setContactStatus("Sending your message...", "sending");
 
           try {
             const response = await fetch(endpoint, {
@@ -287,14 +334,13 @@ const structuredData = {
             }
 
             contactForm.reset();
-            contactStatus.textContent = "Message sent. Check your inbox for a copy.";
-            window.setTimeout(() => {
-              setContactModalOpen(false);
-            }, 900);
+            setContactStatus("", "idle");
+            contactForm.classList.add("hidden");
+            contactSuccess?.classList.remove("hidden");
           } catch (error) {
             const message =
               error instanceof Error ? error.message : "Failed to send message";
-            contactStatus.textContent = message;
+            setContactStatus(message, "error");
           } finally {
             contactSubmit.disabled = false;
             contactSubmit.textContent = "Send message";

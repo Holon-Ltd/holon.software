@@ -31,9 +31,30 @@ const submissionSchema = z.object({
   website: z.string().max(0).optional().or(z.literal("")),
 });
 
+function isLocalOrigin(origin) {
+  if (!origin) return false;
+
+  try {
+    const { hostname } = new URL(origin);
+    return hostname === "localhost" || hostname === "127.0.0.1";
+  } catch {
+    return false;
+  }
+}
+
+function isAllowedOrigin(origin) {
+  if (ALLOWED_ORIGIN === "*" || !origin) return true;
+  if (origin === ALLOWED_ORIGIN) return true;
+  if (isLocalOrigin(origin)) return true;
+  return false;
+}
+
 function getCorsHeaders(origin) {
+  const allowOrigin =
+    ALLOWED_ORIGIN === "*" ? "*" : isAllowedOrigin(origin) ? origin : ALLOWED_ORIGIN;
+
   return {
-    "Access-Control-Allow-Origin": ALLOWED_ORIGIN === "*" ? "*" : origin || ALLOWED_ORIGIN,
+    "Access-Control-Allow-Origin": allowOrigin,
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
     "Content-Type": "application/json; charset=utf-8",
@@ -121,7 +142,7 @@ function buildSenderCopy(submission) {
 async function handleContact(request) {
   const origin = request.headers.get("origin") || "";
 
-  if (ALLOWED_ORIGIN !== "*" && origin && origin !== ALLOWED_ORIGIN) {
+  if (!isAllowedOrigin(origin)) {
     return json({ error: "Origin not allowed" }, 403, origin);
   }
 
