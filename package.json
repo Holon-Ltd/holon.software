@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "dev:mobile": "astro dev --host",
+    "dev:api": "bun --watch server/index.js",
+    "start:api": "bun server/index.js",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
@@ -12,7 +14,9 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^6.0.8",
+    "postmark": "^4.0.7",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.2"
+    "tailwindcss": "^4.2.2",
+    "zod": "^4.3.6"
   }
 }

@@ -6,14 +6,13 @@ const title = "Holon Software | Software systems for the age of AI";
 const description =
   "Holon Software builds dependable software systems for the age of AI, with a focus on robust architecture, integration, and long-term maintainability.";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
-const email = "apostol@holon.software";
+const contactEndpoint = import.meta.env.PUBLIC_CONTACT_API_URL || "/api/contact";
 const structuredData = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: siteName,
   url: Astro.site?.toString(),
   description,
-  email,
 };
 ---
 
@@ -49,13 +48,58 @@ const structuredData = {
         <div class="absolute bottom-[-6rem] left-[-4rem] h-[20rem] w-[20rem] rounded-full bg-blue-500/10 blur-3xl"></div>
       </div>
 
-      <section class="mx-auto flex min-h-screen w-full max-w-6xl items-center px-6 py-12 sm:px-8 lg:px-12">
-        <div class="w-full rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-black/20 backdrop-blur sm:p-12 lg:p-16">
-          <div class="max-w-3xl">
-            <p class="text-sm font-medium uppercase tracking-[0.3em] text-sky-200/80">
-              Holon Software
-            </p>
-            <h1 class="mt-6 text-[clamp(3rem,7vw,5.75rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-white">
+      <section class="mx-auto flex min-h-screen w-full max-w-6xl items-center px-5 py-10 sm:px-8 sm:py-12 lg:px-12">
+        <div class="w-full rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-6 shadow-2xl shadow-black/20 backdrop-blur sm:rounded-[2rem] sm:p-12 lg:p-16">
+          <div class="max-w-4xl">
+            <div class="relative inline-flex max-w-full flex-wrap items-start">
+              <p class="text-[clamp(3.5rem,8vw,7rem)] font-semibold leading-[0.9] tracking-[-0.06em] text-white">
+                holon.software
+              </p>
+              <button
+                id="holon-definition-trigger"
+                type="button"
+                class="ml-1 inline-flex items-start justify-center pt-1 text-[clamp(1.4rem,2vw,1.9rem)] font-semibold leading-none text-sky-100/82 transition hover:text-sky-50 focus:outline-none"
+                aria-label="What does Holon mean?"
+                aria-expanded="false"
+                aria-controls="holon-definition-popup"
+              >
+                *
+              </button>
+              <div
+                id="holon-definition-popup"
+                class="pointer-events-none fixed inset-x-4 top-20 z-10 hidden rounded-3xl border border-white/12 bg-slate-950/92 p-5 shadow-2xl shadow-black/35 backdrop-blur sm:absolute sm:inset-x-auto sm:top-full sm:mt-4 sm:w-full sm:max-w-md"
+                role="dialog"
+                aria-modal="false"
+                aria-labelledby="holon-definition-title"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <p
+                      id="holon-definition-title"
+                      class="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200/82"
+                    >
+                      Why Holon
+                    </p>
+                    <p class="mt-3 text-base leading-7 text-slate-200/88">
+                      A holon is something that is both a whole in itself and part of a
+                      larger whole. The word combines the Greek <em>holos</em>, meaning
+                      "whole," with the suffix <em>-on</em>, suggesting a part or
+                      particle, and was introduced by Arthur Koestler in 1967 in
+                      <em>The Ghost in the Machine</em>.
+                    </p>
+                  </div>
+                  <button
+                    id="holon-definition-close"
+                    type="button"
+                    class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/5 text-lg leading-none text-slate-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-300/60 focus:ring-offset-2 focus:ring-offset-slate-950"
+                    aria-label="Close definition popup"
+                  >
+                    ×
+                  </button>
+                </div>
+              </div>
+            </div>
+            <h1 class="mt-5 text-[clamp(1.25rem,2vw,1.9rem)] font-medium leading-[1.2] tracking-[-0.02em] text-sky-100/82">
               Software systems for the age of AI
             </h1>
             <p class="mt-6 max-w-2xl text-[clamp(1.05rem,1.6vw,1.3rem)] leading-8 text-slate-200/85">
@@ -63,25 +107,242 @@ const structuredData = {
               combining strong architecture, thoughtful integration, and an emphasis on
               clarity that lasts.
             </p>
-            <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-300/72">
-              Professional software foundations for organizations that want to use AI
-              seriously.
-            </p>
 
-            <div class="mt-10 flex flex-wrap items-center gap-4">
-              <a
-                href={`mailto:${email}`}
-                class="inline-flex items-center justify-center rounded-full bg-sky-300 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-slate-950 no-underline transition hover:bg-sky-200"
-              >
-                {email}
-              </a>
-              <span class="text-sm text-slate-300/70">
-                Available for focused collaboration and systems consulting.
-              </span>
+            <div class="mt-10 flex max-w-2xl flex-col gap-4">
+              <div class="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+                <button
+                  id="contact-modal-trigger"
+                  type="button"
+                  class="inline-flex w-full items-center justify-center rounded-full bg-sky-300 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-slate-950 transition hover:bg-sky-200 sm:w-auto"
+                >
+                  Contact
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
+    <div
+      id="contact-modal"
+      class="fixed inset-0 z-20 hidden items-end justify-center overflow-y-auto bg-slate-950/72 p-3 backdrop-blur-sm sm:items-center sm:p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Contact form"
+    >
+      <div class="relative max-h-[calc(100dvh-1.5rem)] w-full max-w-2xl overflow-y-auto rounded-[1.75rem] border border-white/10 bg-[#071327] p-5 shadow-2xl shadow-black/40 sm:max-h-[calc(100dvh-2rem)] sm:rounded-[2rem] sm:p-8">
+        <div class="mb-4 flex justify-end sm:mb-5">
+          <button
+            id="contact-modal-close"
+            type="button"
+            class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/12 bg-white/5 text-lg leading-none text-slate-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-sky-300/60 focus:ring-offset-2 focus:ring-offset-slate-950"
+            aria-label="Close contact form"
+          >
+            ×
+          </button>
+        </div>
+
+        <form
+          id="contact-form"
+          data-endpoint={contactEndpoint}
+          class="space-y-4"
+        >
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="block">
+              <span class="mb-2 block text-sm font-medium tracking-[0.06em] text-slate-200/82">
+                Name
+              </span>
+              <input
+                id="contact-name"
+                name="name"
+                autocomplete="name"
+                required
+                class="w-full rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-400/70 focus:border-sky-300/60 focus:bg-white/8"
+                placeholder="Your name"
+              />
+            </label>
+            <label class="block">
+              <span class="mb-2 block text-sm font-medium tracking-[0.06em] text-slate-200/82">
+                Email
+              </span>
+              <input
+                type="email"
+                name="email"
+                autocomplete="email"
+                required
+                class="w-full rounded-2xl border border-white/10 bg-white/6 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-400/70 focus:border-sky-300/60 focus:bg-white/8"
+                placeholder="you@company.com"
+              />
+            </label>
+          </div>
+          <label class="block">
+            <span class="mb-2 block text-sm font-medium tracking-[0.06em] text-slate-200/82">
+              Message
+            </span>
+            <textarea
+              name="message"
+              rows="5"
+              required
+              class="w-full rounded-3xl border border-white/10 bg-white/6 px-4 py-3 text-base text-white outline-none transition placeholder:text-slate-400/70 focus:border-sky-300/60 focus:bg-white/8"
+              placeholder="Tell me a bit about what you are building and what kind of help you need."
+            ></textarea>
+          </label>
+          <div class="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+            <label>
+              Website
+              <input name="website" tabindex="-1" autocomplete="off" />
+            </label>
+          </div>
+          <div class="flex flex-col items-start gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <button
+              id="contact-submit"
+              type="submit"
+              class="inline-flex w-full items-center justify-center rounded-full bg-sky-300 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-slate-950 transition hover:bg-sky-200 disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+            >
+              Send message
+            </button>
+            <span
+              id="contact-status"
+              class="text-sm leading-6 text-slate-300/78"
+              aria-live="polite"
+            ></span>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script>
+      const contactModal = document.getElementById("contact-modal");
+      const contactModalTrigger = document.getElementById("contact-modal-trigger");
+      const contactModalClose = document.getElementById("contact-modal-close");
+      const contactForm = document.getElementById("contact-form");
+      const contactNameInput = document.getElementById("contact-name");
+      const contactSubmit = document.getElementById("contact-submit");
+      const contactStatus = document.getElementById("contact-status");
+      const holonDefinitionTrigger = document.getElementById("holon-definition-trigger");
+      const holonDefinitionPopup = document.getElementById("holon-definition-popup");
+      const holonDefinitionClose = document.getElementById("holon-definition-close");
+
+      const setContactModalOpen = (isOpen) => {
+        if (!contactModal || !contactModalTrigger) return;
+
+        contactModal.classList.toggle("hidden", !isOpen);
+        contactModal.classList.toggle("flex", isOpen);
+        contactModalTrigger.setAttribute("aria-expanded", String(isOpen));
+        document.body.style.overflow = isOpen ? "hidden" : "";
+
+        if (isOpen && contactNameInput instanceof HTMLInputElement) {
+          window.setTimeout(() => {
+            contactNameInput.focus();
+          }, 20);
+        }
+
+        if (!isOpen) {
+          contactModalTrigger.focus();
+        }
+      };
+
+      if (contactModal && contactModalTrigger) {
+        contactModalTrigger.addEventListener("click", () => {
+          setContactModalOpen(true);
+        });
+
+        contactModalClose?.addEventListener("click", () => {
+          setContactModalOpen(false);
+        });
+
+        contactModal.addEventListener("click", (event) => {
+          if (event.target === contactModal) {
+            setContactModalOpen(false);
+          }
+        });
+      }
+
+      if (
+        contactForm instanceof HTMLFormElement &&
+        contactSubmit instanceof HTMLButtonElement &&
+        contactStatus
+      ) {
+        const endpoint = contactForm.dataset.endpoint || "/api/contact";
+
+        contactForm.addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const formData = new FormData(contactForm);
+          const payload = Object.fromEntries(formData.entries());
+
+          contactSubmit.disabled = true;
+          contactSubmit.textContent = "Sending...";
+          contactStatus.textContent = "Sending your message...";
+
+          try {
+            const response = await fetch(endpoint, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(payload),
+            });
+
+            const data = await response.json().catch(() => ({}));
+
+            if (!response.ok) {
+              throw new Error(data.error || "Failed to send message");
+            }
+
+            contactForm.reset();
+            contactStatus.textContent = "Message sent. Check your inbox for a copy.";
+            window.setTimeout(() => {
+              setContactModalOpen(false);
+            }, 900);
+          } catch (error) {
+            const message =
+              error instanceof Error ? error.message : "Failed to send message";
+            contactStatus.textContent = message;
+          } finally {
+            contactSubmit.disabled = false;
+            contactSubmit.textContent = "Send message";
+          }
+        });
+      }
+
+      if (holonDefinitionTrigger && holonDefinitionPopup) {
+        const setHolonDefinitionOpen = (isOpen) => {
+          holonDefinitionPopup.classList.toggle("hidden", !isOpen);
+          holonDefinitionPopup.classList.toggle("pointer-events-none", !isOpen);
+          holonDefinitionTrigger.setAttribute("aria-expanded", String(isOpen));
+        };
+
+        const isHolonDefinitionOpen = () => !holonDefinitionPopup.classList.contains("hidden");
+
+        holonDefinitionTrigger.addEventListener("click", (event) => {
+          event.stopPropagation();
+          setHolonDefinitionOpen(!isHolonDefinitionOpen());
+        });
+
+        holonDefinitionClose?.addEventListener("click", () => {
+          setHolonDefinitionOpen(false);
+          holonDefinitionTrigger.focus();
+        });
+
+        document.addEventListener("click", (event) => {
+          if (!(event.target instanceof Node)) return;
+          if (
+            holonDefinitionPopup.contains(event.target) ||
+            holonDefinitionTrigger.contains(event.target)
+          ) {
+            return;
+          }
+
+          setHolonDefinitionOpen(false);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            setHolonDefinitionOpen(false);
+            setContactModalOpen(false);
+          }
+        });
+      }
+    </script>
   </body>
 </html>
