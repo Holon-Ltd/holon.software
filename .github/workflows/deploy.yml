@@ -1,0 +1,39 @@
+name: Deploy holon.software
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: holon-software-deploy
+      cancel-in-progress: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@v4
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
+          ping: holon-centralgermany
+
+      - name: Verify server access
+        run: tailscale ssh root@holon-centralgermany 'hostname && whoami'
+
+      - name: Deploy holon.software
+        run: |
+          tailscale ssh root@holon-centralgermany '
+            set -euo pipefail
+            cd /root/websites/holon.software
+            git fetch origin main
+            git checkout main
+            git pull --ff-only origin main
+            bash scripts/deploy-live.sh
+          '
