@@ -8,6 +8,7 @@ const ALLOWED_ORIGIN = process.env.ALLOWED_ORIGIN || "*";
 const POSTMARK_API_KEY = process.env.POSTMARK_API_KEY;
 const CONTACT_FROM_EMAIL = process.env.CONTACT_FROM_EMAIL;
 const CONTACT_TO_EMAIL = process.env.CONTACT_TO_EMAIL;
+const CONTACT_FROM_NAME = "holon.software";
 
 if (!POSTMARK_API_KEY) {
   throw new Error("POSTMARK_API_KEY environment variable is required");
@@ -152,7 +153,7 @@ async function handleContact(request) {
   });
 
   await postmark.sendEmail({
-    From: CONTACT_FROM_EMAIL,
+    From: `${CONTACT_FROM_NAME} <${CONTACT_FROM_EMAIL}>`,
     To: submission.email,
     Subject: senderCopy.subject,
     HtmlBody: senderCopy.html,
