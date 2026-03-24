@@ -1,0 +1,87 @@
+---
+import "../styles/global.css";
+
+const siteName = "Holon Software";
+const title = "Holon Software | Software systems for the age of AI";
+const description =
+  "Holon Software builds dependable software systems for the age of AI, with a focus on robust architecture, integration, and long-term maintainability.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+const email = "apostol@holon.software";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: siteName,
+  url: Astro.site?.toString(),
+  description,
+  email,
+};
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#06162f" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+  </head>
+  <body>
+    <main class="relative isolate overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div class="absolute inset-x-0 top-[-12rem] h-[28rem] bg-[radial-gradient(circle,rgba(125,211,252,0.18),transparent_58%)]"></div>
+        <div class="absolute right-[-8rem] top-[10rem] h-[22rem] w-[22rem] rounded-full bg-sky-400/10 blur-3xl"></div>
+        <div class="absolute bottom-[-6rem] left-[-4rem] h-[20rem] w-[20rem] rounded-full bg-blue-500/10 blur-3xl"></div>
+      </div>
+
+      <section class="mx-auto flex min-h-screen w-full max-w-6xl items-center px-6 py-12 sm:px-8 lg:px-12">
+        <div class="w-full rounded-[2rem] border border-white/10 bg-white/[0.04] p-8 shadow-2xl shadow-black/20 backdrop-blur sm:p-12 lg:p-16">
+          <div class="max-w-3xl">
+            <p class="text-sm font-medium uppercase tracking-[0.3em] text-sky-200/80">
+              Holon Software
+            </p>
+            <h1 class="mt-6 text-[clamp(3rem,7vw,5.75rem)] font-semibold leading-[0.95] tracking-[-0.05em] text-white">
+              Software systems for the age of AI
+            </h1>
+            <p class="mt-6 max-w-2xl text-[clamp(1.05rem,1.6vw,1.3rem)] leading-8 text-slate-200/85">
+              We design and build dependable software systems for AI-native products,
+              combining strong architecture, thoughtful integration, and an emphasis on
+              clarity that lasts.
+            </p>
+            <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-300/72">
+              Professional software foundations for organizations that want to use AI
+              seriously.
+            </p>
+
+            <div class="mt-10 flex flex-wrap items-center gap-4">
+              <a
+                href={`mailto:${email}`}
+                class="inline-flex items-center justify-center rounded-full bg-sky-300 px-6 py-3 text-sm font-semibold tracking-[0.12em] text-slate-950 no-underline transition hover:bg-sky-200"
+              >
+                {email}
+              </a>
+              <span class="text-sm text-slate-300/70">
+                Available for focused collaboration and systems consulting.
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
