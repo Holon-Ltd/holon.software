@@ -99,7 +99,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
             <li><strong>Welcome email</strong> after signup — next steps, Zoom link, what to expect</li>
             <li><strong>Session reminder</strong> 1 hour before each Wednesday session, with Zoom link</li>
             <li><strong>Payment receipt</strong> after each charge</li>
-            <li><strong>Renewal reminder</strong> before the next billing cycle</li>
+
             <li><strong>We miss you</strong> email if someone cancels (optional)</li>
           </ul>
         </div>
@@ -235,18 +235,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 
       /* Layout */
       .page {
-        max-width: 42rem;
+        max-width: 56rem;
         margin: 0 auto;
-        padding: 3.5rem 1.5rem 4rem;
+        padding: 3.5rem 2rem 4rem;
       }
 
       @media (min-width: 640px) {
-        .page { padding: 5rem 2rem 5rem; }
+        .page { padding: 5rem 3rem 5rem; }
+      }
+
+      @media (min-width: 1024px) {
+        .page { padding: 5rem 4rem 5rem; }
       }
 
       /* Header */
       .header {
-        margin-bottom: 3.5rem;
+        margin-bottom: 2rem;
       }
 
       .header .label {
@@ -284,7 +288,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         border: none;
         height: 1px;
         background: var(--border-light);
-        margin: 2.5rem 0;
+        margin: 1.75rem 0;
       }
 
       .h2 {
@@ -293,7 +297,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         font-weight: 400;
         color: var(--text);
         letter-spacing: -0.01em;
-        margin-bottom: 1rem;
+        margin-bottom: 0.6rem;
       }
 
       .h3 {
@@ -303,34 +307,36 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         letter-spacing: 0.12em;
         text-transform: uppercase;
         color: var(--accent);
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.35rem;
       }
 
       .lead {
         font-size: 1.15rem;
         line-height: 1.85;
         color: var(--text-secondary);
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        max-width: 48rem;
       }
 
       .body {
-        font-size: 1rem;
-        line-height: 1.8;
+        font-size: 1.05rem;
+        line-height: 1.85;
         color: var(--text-secondary);
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.4rem;
+        max-width: 48rem;
       }
 
       .body:last-child { margin-bottom: 0; }
 
       /* Features */
       .feature {
-        margin-top: 2.25rem;
-        padding-top: 2.25rem;
+        margin-top: 1.75rem;
+        padding-top: 1.75rem;
         border-top: 1px solid var(--border-light);
       }
 
       .feature:first-of-type {
-        margin-top: 1.5rem;
+        margin-top: 1rem;
         padding-top: 0;
         border-top: none;
       }
@@ -381,14 +387,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
       .list {
         list-style: none;
         padding: 0;
-        margin: 0.5rem 0 0.75rem;
+        margin: 0.35rem 0 0.5rem;
       }
 
       .list li {
         position: relative;
         padding-left: 1.15rem;
-        font-size: 0.95rem;
-        line-height: 1.8;
+        font-size: 1rem;
+        line-height: 1.85;
         color: var(--text-secondary);
       }
 
@@ -488,9 +494,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
       /* Questions */
       .questions {
         margin-top: 1.25rem;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 0.75rem;
+      }
+
+      @media (min-width: 640px) {
+        .questions {
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
       }
 
       .question {
