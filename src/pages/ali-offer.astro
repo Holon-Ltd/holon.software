@@ -36,8 +36,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         </p>
       </section>
 
-      <hr class="divider" />
-
       <section class="section">
         <h2 class="h2">What You Get</h2>
 
@@ -112,16 +110,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         </div>
       </section>
 
-      <hr class="divider" />
-
       <section class="section">
         <h2 class="h2">Timeline</h2>
         <p class="body">
           Development would happen in <strong>early to mid May 2026</strong>, with a fully working version ready within <strong>one week</strong> — landing page, Stripe integration, member profiles, admin dashboard, and automated emails, all live and ready for signups.
         </p>
       </section>
-
-      <hr class="divider" />
 
       <section class="section">
         <h2 class="h2">Investment</h2>
@@ -154,18 +148,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
         </div>
       </section>
 
-      <hr class="divider" />
-
       <section class="section">
         <h2 class="h2">Tradeoffs</h2>
         <div class="callout">
           <p class="body">
-            Since this is a tailored solution built specifically for your needs (not a generic platform), adding brand-new features requires development work. The tradeoff is that everything is built exactly for your use case, with no bloat, no platform fees eating into your revenue, and full control over the experience your members have.
+            Since this is a tailored solution built specifically for your needs (not a generic platform), adding brand-new features requires development work. The upside is that everything is built exactly for your use case, with no bloat, no platform fees eating into your revenue, and full control over the experience your members have.
           </p>
         </div>
       </section>
-
-      <hr class="divider" />
 
       <section class="section">
         <h2 class="h2">Open Questions</h2>
@@ -283,13 +273,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
 
       /* Sections */
       .section { margin-bottom: 0; }
-
-      .divider {
-        border: none;
-        height: 1px;
-        background: var(--border-light);
-        margin: 1.75rem 0;
-      }
+      .section + .section { margin-top: 2rem; }
 
       .h2 {
         font-family: 'DM Serif Display', Georgia, serif;
