@@ -1,0 +1,181 @@
+---
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Style Variants</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <style is:global>
+      html body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #111318 !important;
+        font-family: system-ui, sans-serif !important;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+
+    <div style="padding:2.5rem 1.5rem 2rem;max-width:84rem;margin:0 auto;">
+      <h1 style="color:#fafafa;font-size:1.4rem;font-weight:600;letter-spacing:-0.03em;margin-bottom:0.4rem;">Style Variants</h1>
+      <p style="color:#52525b;font-size:0.85rem;margin-bottom:2.5rem;">Click any card to expand fullscreen · Esc to close</p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:1.75rem;">
+
+        <!-- VARIANT A: Terracotta accent (the night one you liked) -->
+        <div id="card-a" style="border-radius:0.875rem;overflow:hidden;border:1px solid #27272a;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:#1c2438;padding:3rem 2.5rem 3.5rem;min-height:400px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 100% 50% at 50% 100%,rgba(180,130,90,0.14),transparent 60%),radial-gradient(ellipse 50% 40% at 50% 0%,rgba(140,160,220,0.08),transparent 55%);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <p style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:400;line-height:0.92;letter-spacing:-0.03em;color:#e8eeff;">
+                holon.<wbr/>software<span style="color:#c4845e;font-size:1.1rem;vertical-align:top;margin-left:0.12rem;">*</span>
+              </p>
+              <h2 style="margin-top:1rem;font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:400;font-style:italic;line-height:1.3;color:rgba(196,132,94,0.8);">
+                Software systems for the age of AI
+              </h2>
+              <p style="margin-top:1.1rem;max-width:26rem;font-family:'Source Serif 4',Georgia,serif;font-size:0.9rem;line-height:1.85;color:rgba(210,220,250,0.55);">
+                We design and build cutting edge software systems for AI-native products, combining strong architecture, thoughtful integration, and clarity that lasts.
+              </p>
+              <div style="margin-top:1.6rem;">
+                <span style="display:inline-flex;align-items:center;border-radius:999px;background:#a0603e;padding:0.55rem 1.2rem;font-family:'Source Serif 4',serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;color:#fff;">Contact</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:#1c2438;border-top:1px solid rgba(196,132,94,0.12);padding:0.7rem 2.5rem;">
+            <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(196,132,94,0.4);">A — Terracotta</span>
+          </div>
+        </div>
+
+        <!-- VARIANT B: Sage/teal accent — cooler, more techy -->
+        <div id="card-b" style="border-radius:0.875rem;overflow:hidden;border:1px solid #27272a;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:#1a2336;padding:3rem 2.5rem 3.5rem;min-height:400px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 50% at 50% 100%,rgba(90,180,160,0.12),transparent 60%),radial-gradient(ellipse 50% 40% at 60% -5%,rgba(100,200,180,0.08),transparent 55%);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <p style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:400;line-height:0.92;letter-spacing:-0.03em;color:#e8f0f8;">
+                holon.<wbr/>software<span style="color:#5db8a0;font-size:1.1rem;vertical-align:top;margin-left:0.12rem;">*</span>
+              </p>
+              <h2 style="margin-top:1rem;font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:400;font-style:italic;line-height:1.3;color:rgba(93,184,160,0.75);">
+                Software systems for the age of AI
+              </h2>
+              <p style="margin-top:1.1rem;max-width:26rem;font-family:'Source Serif 4',Georgia,serif;font-size:0.9rem;line-height:1.85;color:rgba(210,225,240,0.52);">
+                We design and build cutting edge software systems for AI-native products, combining strong architecture, thoughtful integration, and clarity that lasts.
+              </p>
+              <div style="margin-top:1.6rem;">
+                <span style="display:inline-flex;align-items:center;border-radius:999px;background:#3d8f7a;padding:0.55rem 1.2rem;font-family:'Source Serif 4',serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;color:#fff;">Contact</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:#1a2336;border-top:1px solid rgba(93,184,160,0.12);padding:0.7rem 2.5rem;">
+            <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(93,184,160,0.4);">B — Sage / Teal</span>
+          </div>
+        </div>
+
+        <!-- VARIANT C: Gold/champagne accent — warmer, richer -->
+        <div id="card-c" style="border-radius:0.875rem;overflow:hidden;border:1px solid #27272a;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 16px 48px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+          <div style="background:#1e2438;padding:3rem 2.5rem 3.5rem;min-height:400px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;">
+            <div style="position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 40% 100%,rgba(210,175,100,0.14),transparent 60%),radial-gradient(ellipse 50% 40% at 70% -5%,rgba(230,200,130,0.07),transparent 55%);pointer-events:none;"></div>
+            <div style="position:relative;z-index:1;">
+              <p style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:400;line-height:0.92;letter-spacing:-0.03em;color:#eef0f8;">
+                holon.<wbr/>software<span style="color:#c9a54e;font-size:1.1rem;vertical-align:top;margin-left:0.12rem;">*</span>
+              </p>
+              <h2 style="margin-top:1rem;font-family:'DM Serif Display',Georgia,serif;font-size:1.1rem;font-weight:400;font-style:italic;line-height:1.3;color:rgba(201,165,78,0.8);">
+                Software systems for the age of AI
+              </h2>
+              <p style="margin-top:1.1rem;max-width:26rem;font-family:'Source Serif 4',Georgia,serif;font-size:0.9rem;line-height:1.85;color:rgba(215,220,245,0.52);">
+                We design and build cutting edge software systems for AI-native products, combining strong architecture, thoughtful integration, and clarity that lasts.
+              </p>
+              <div style="margin-top:1.6rem;">
+                <span style="display:inline-flex;align-items:center;border-radius:999px;background:#a08530;padding:0.55rem 1.2rem;font-family:'Source Serif 4',serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;color:#fff;">Contact</span>
+              </div>
+            </div>
+          </div>
+          <div style="background:#1e2438;border-top:1px solid rgba(201,165,78,0.12);padding:0.7rem 2.5rem;">
+            <span style="font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(201,165,78,0.4);">C — Gold / Champagne</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Beige reference link -->
+      <div style="margin-top:3rem;padding-top:1.5rem;border-top:1px solid #27272a;">
+        <p style="color:#52525b;font-size:0.78rem;margin-bottom:0.75rem;letter-spacing:0.05em;text-transform:uppercase;">Reference</p>
+        <div id="card-ref" style="display:inline-flex;align-items:center;gap:1rem;background:#1e1e21;border:1px solid #2e2e32;border-radius:0.5rem;padding:0.75rem 1.25rem;cursor:pointer;transition:border-color 0.15s;" onmouseover="this.style.borderColor='#a0603e'" onmouseout="this.style.borderColor='#2e2e32'">
+          <div style="width:2rem;height:2rem;border-radius:0.3rem;background:#f5f0ea;flex-shrink:0;"></div>
+          <span style="font-size:0.82rem;color:#a1a1aa;">Warm beige (original current style)</span>
+          <span style="font-size:0.7rem;color:#52525b;letter-spacing:0.08em;text-transform:uppercase;">Expand →</span>
+        </div>
+      </div>
+
+      <!-- Hidden beige card for fullscreen reference -->
+      <div id="card-beige" style="display:none;">
+        <div style="background:#f5f0ea;padding:3rem 2.5rem 3.5rem;min-height:400px;display:flex;flex-direction:column;justify-content:center;">
+          <p style="font-family:'DM Sans',system-ui,sans-serif;font-size:clamp(2rem,5.5vw,3.6rem);font-weight:700;line-height:0.92;letter-spacing:-0.05em;color:#2d2a26;">
+            holon.<wbr/>software<span style="color:#a0603e;font-size:1.1rem;font-weight:400;vertical-align:top;margin-left:0.12rem;">*</span>
+          </p>
+          <h2 style="margin-top:1rem;font-family:'DM Sans',system-ui,sans-serif;font-size:1.1rem;font-weight:500;line-height:1.3;letter-spacing:-0.02em;color:#958d84;">
+            Software systems for the age of AI
+          </h2>
+          <p style="margin-top:1.1rem;max-width:26rem;font-family:'DM Sans',system-ui,sans-serif;font-size:0.9rem;line-height:1.8;color:#6b6560;">
+            We design and build cutting edge software systems for AI-native products, combining strong architecture, thoughtful integration, and clarity that lasts.
+          </p>
+          <div style="margin-top:1.6rem;">
+            <span style="display:inline-flex;align-items:center;border-radius:999px;background:#a0603e;padding:0.55rem 1.2rem;font-family:'DM Sans',system-ui,sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.1em;color:#fff;">Contact</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fullscreen overlay -->
+    <div id="fullscreen-overlay" style="display:none;position:fixed;inset:0;z-index:100;overflow:auto;cursor:pointer;">
+      <button id="close-btn" style="position:fixed;top:1.5rem;right:1.5rem;z-index:110;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);border-radius:50%;width:2.5rem;height:2.5rem;color:#fff;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;">&times;</button>
+      <div id="fullscreen-content" style="cursor:default;min-height:100vh;display:flex;align-items:center;justify-content:center;"></div>
+    </div>
+
+    <script>
+      function openFullscreen(cardId) {
+        const card = document.getElementById(cardId);
+        const overlay = document.getElementById('fullscreen-overlay');
+        const content = document.getElementById('fullscreen-content');
+        const inner = card.querySelector('div');
+        content.innerHTML = '';
+        const page = document.createElement('div');
+        page.style.cssText = `width:100vw;min-height:100vh;box-sizing:border-box;background:${inner.style.background};display:flex;align-items:center;`;
+        const centreWrap = document.createElement('div');
+        centreWrap.style.cssText = 'max-width:48rem;width:100%;margin:0 auto;padding:5rem 3rem;box-sizing:border-box;';
+        Array.from(inner.children).forEach(child => {
+          centreWrap.appendChild(child.cloneNode(true));
+        });
+        page.appendChild(centreWrap);
+        content.appendChild(page);
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeFullscreen() {
+        document.getElementById('fullscreen-overlay').style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      const overlay = document.getElementById('fullscreen-overlay');
+      const closeBtn = document.getElementById('close-btn');
+      const fsContent = document.getElementById('fullscreen-content');
+
+      closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeFullscreen(); });
+      closeBtn.addEventListener('mouseover', () => { closeBtn.style.background = 'rgba(255,255,255,0.2)'; });
+      closeBtn.addEventListener('mouseout', () => { closeBtn.style.background = 'rgba(255,255,255,0.1)'; });
+      overlay.addEventListener('click', closeFullscreen);
+      fsContent.addEventListener('click', (e) => e.stopPropagation());
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFullscreen(); });
+
+      document.getElementById('card-a').addEventListener('click', () => openFullscreen('card-a'));
+      document.getElementById('card-b').addEventListener('click', () => openFullscreen('card-b'));
+      document.getElementById('card-c').addEventListener('click', () => openFullscreen('card-c'));
+      document.getElementById('card-ref').addEventListener('click', () => openFullscreen('card-beige'));
+    </script>
+  </body>
+</html>
