@@ -1,0 +1,538 @@
+---
+const title = "Emotional Circles Membership Platform — Proposal";
+const description = "A proposal for a custom membership platform for weekly emotional processing circles.";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f5f0ea" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400;1,8..60,500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <div class="page">
+      <header class="header">
+        <p class="label">Proposal</p>
+        <h1 class="title">Emotional Circles</h1>
+        <p class="subtitle">Membership Platform</p>
+      </header>
+
+      <section class="section">
+        <h2 class="h2">The Idea</h2>
+        <p class="lead">
+          A clean, purpose-built website for your weekly emotional processing circles — a place where people can learn about the offering, sign up in seconds, and manage their membership without friction.
+        </p>
+        <p class="body">
+          We'd put this on a dedicated domain like <strong>emotionalcircles.com</strong> (available to register), giving the circles their own branded home. If you'd prefer to keep it under your existing brand, <strong>circles.alitataryn.com</strong> works too.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="section">
+        <h2 class="h2">What You Get</h2>
+
+        <div class="feature">
+          <h3 class="h3">A Beautiful Landing Page</h3>
+          <p class="body">
+            A single, focused page that explains what the circles are, who they're for, and what participants can expect. Designed to look great on both desktop and mobile — important since most visitors will likely find you through social media on their phones.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3 class="h3">Two-Click Signup</h3>
+          <p class="body">
+            The current sign-up process has too many steps, which likely costs you signups from people who are curious but not yet committed. The new flow:
+          </p>
+          <div class="steps">
+            <div class="step">
+              <span class="step-num">1</span>
+              <p>Visitor reads the page, picks their tier — <strong>$50, $75, or $100/month</strong> — and clicks <strong class="accent">"Join the Circle"</strong></p>
+            </div>
+            <div class="step">
+              <span class="step-num">2</span>
+              <p>Stripe Checkout opens — they enter their card and they're in. Account created, welcome email sent instantly.</p>
+            </div>
+          </div>
+          <p class="body">
+            That's it. No account creation forms, no confirmation pages, no friction.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3 class="h3">Member Dashboard</h3>
+          <p class="body">Each member gets a simple personal page where they can:</p>
+          <ul class="list">
+            <li>Access links to documents and materials</li>
+            <li>See their payment history</li>
+            <li>Change their subscription plan or cancel</li>
+            <li>Update their profile info</li>
+          </ul>
+          <p class="body">No back-and-forth emails needed for any of this.</p>
+        </div>
+
+        <div class="feature">
+          <h3 class="h3">Admin Dashboard</h3>
+          <p class="body">You get a private interface where you can:</p>
+          <ul class="list">
+            <li>See all active members and their details</li>
+            <li>Track who joined, who churned, and when</li>
+            <li>View subscription revenue at a glance</li>
+            <li>Export member lists</li>
+            <li>Manually adjust subscriptions if needed</li>
+          </ul>
+        </div>
+
+        <div class="feature">
+          <h3 class="h3">Automated Emails</h3>
+          <p class="body">Branded, good-looking emails that go out automatically:</p>
+          <ul class="list">
+            <li><strong>Welcome email</strong> after signup — next steps, Zoom link, what to expect</li>
+            <li><strong>Session reminder</strong> 1 hour before each Wednesday session, with Zoom link</li>
+            <li><strong>Payment receipt</strong> after each charge</li>
+            <li><strong>Renewal reminder</strong> before the next billing cycle</li>
+            <li><strong>We miss you</strong> email if someone cancels (optional)</li>
+          </ul>
+        </div>
+
+        <div class="feature">
+          <h3 class="h3">All-in-One System</h3>
+          <p class="body">
+            The website, Stripe payments, member accounts, and email delivery are all integrated into a single system. No juggling between platforms, no syncing issues, no confusion about who's subscribed and who isn't.
+          </p>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="section">
+        <h2 class="h2">Timeline</h2>
+        <p class="body">
+          Development would happen in <strong>early to mid May 2026</strong>, with a fully working version ready within <strong>one week</strong> — landing page, Stripe integration, member profiles, admin dashboard, and automated emails, all live and ready for signups.
+        </p>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="section">
+        <h2 class="h2">Investment</h2>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <p class="price-label">One-time build</p>
+            <p class="price-value">$3,000</p>
+            <p class="price-note">
+              For context, a comparable setup on a platform like Kajabi or Circle would cost $100–200/month in platform fees alone — that's $1,200–2,400/year, with their limitations and a generic look. This is a one-time build cost with no ongoing platform fees.
+            </p>
+            <p class="price-note">
+              If the budget is tight, I'm open to a partial barter arrangement — we can figure out something that works for both of us.
+            </p>
+          </div>
+          <div class="price-row">
+            <div class="price-card price-card--small">
+              <p class="price-label">Hosting</p>
+              <p class="price-value">$600<span class="price-unit">/year</span></p>
+              <p class="price-note">
+                Domain, server, SSL, email delivery, and keeping everything running. Roughly $50/month.
+              </p>
+            </div>
+            <div class="price-card price-card--small">
+              <p class="price-label">Maintenance</p>
+              <p class="price-note" style="margin-top: 0.75rem;">
+                Minor tweaks and bug fixes in the first month after launch are included. After that, changes are on an as-needed basis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="section">
+        <h2 class="h2">Tradeoffs</h2>
+        <div class="callout">
+          <p class="body">
+            Since this is a tailored solution built specifically for your needs (not a generic platform), adding brand-new features requires development work. The tradeoff is that everything is built exactly for your use case, with no bloat, no platform fees eating into your revenue, and full control over the experience your members have.
+          </p>
+        </div>
+      </section>
+
+      <hr class="divider" />
+
+      <section class="section">
+        <h2 class="h2">Open Questions</h2>
+        <p class="body">A few things to decide together before building:</p>
+        <div class="questions">
+          <div class="question">
+            <p class="question-label">Subscription tiers</p>
+            <p class="question-body">Currently planned as three monthly tiers ($50 / $75 / $100) where participants choose based on their budget. Does that feel final, or still open to adjusting?</p>
+          </div>
+          <div class="question">
+            <p class="question-label">Session materials</p>
+            <p class="question-body">Links to documents and materials, hosted externally. Any specific structure for how these should be organized (by week, by topic)?</p>
+          </div>
+          <div class="question">
+            <p class="question-label">Session scheduling</p>
+            <p class="question-body">Sessions are weekly on Wednesdays via Zoom. Should the platform also send calendar invites, or just the 1-hour-before reminder email?</p>
+          </div>
+          <div class="question">
+            <p class="question-label">Domain preference</p>
+            <p class="question-body">emotionalcircles.com or circles.alitataryn.com?</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <a href="https://holon.software">holon.software</a>
+      </footer>
+    </div>
+
+    <style is:global>
+      :root {
+        --bg: #f5f0ea;
+        --bg-warm: #efe9e0;
+        --surface: #faf7f3;
+        --border: #ddd5cb;
+        --border-light: #e8e2d9;
+        --text: #2d2a26;
+        --text-secondary: #6b6560;
+        --text-tertiary: #958d84;
+        --accent: #a0603e;
+        --accent-light: #c4845e;
+        --accent-bg: #f8f0e8;
+        --accent-border: #e5d3c3;
+      }
+
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        font-family: 'Source Serif 4', Georgia, 'Times New Roman', serif !important;
+        font-size: 1rem;
+        line-height: 1.75;
+        color: var(--text) !important;
+        background: var(--bg) !important;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+        font-feature-settings: 'kern' 1, 'liga' 1;
+      }
+
+      strong {
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .accent { color: var(--accent); }
+
+      /* Layout */
+      .page {
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 3.5rem 1.5rem 4rem;
+      }
+
+      @media (min-width: 640px) {
+        .page { padding: 5rem 2rem 5rem; }
+      }
+
+      /* Header */
+      .header {
+        margin-bottom: 3.5rem;
+      }
+
+      .header .label {
+        font-family: 'Source Serif 4', serif;
+        font-size: 0.7rem;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .title {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: clamp(2.4rem, 6vw, 3.4rem);
+        font-weight: 400;
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        margin-top: 0.6rem;
+      }
+
+      .subtitle {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+        font-weight: 400;
+        font-style: italic;
+        color: var(--text-tertiary);
+        margin-top: 0.25rem;
+      }
+
+      /* Sections */
+      .section { margin-bottom: 0; }
+
+      .divider {
+        border: none;
+        height: 1px;
+        background: var(--border-light);
+        margin: 2.5rem 0;
+      }
+
+      .h2 {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: clamp(1.5rem, 3vw, 1.85rem);
+        font-weight: 400;
+        color: var(--text);
+        letter-spacing: -0.01em;
+        margin-bottom: 1rem;
+      }
+
+      .h3 {
+        font-family: 'Source Serif 4', serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+      }
+
+      .lead {
+        font-size: 1.15rem;
+        line-height: 1.85;
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+      }
+
+      .body {
+        font-size: 1rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 0.75rem;
+      }
+
+      .body:last-child { margin-bottom: 0; }
+
+      /* Features */
+      .feature {
+        margin-top: 2.25rem;
+        padding-top: 2.25rem;
+        border-top: 1px solid var(--border-light);
+      }
+
+      .feature:first-of-type {
+        margin-top: 1.5rem;
+        padding-top: 0;
+        border-top: none;
+      }
+
+      /* Steps */
+      .steps {
+        margin: 1rem 0;
+        padding: 1.25rem 1.5rem;
+        background: var(--accent-bg);
+        border: 1px solid var(--accent-border);
+        border-radius: 0.75rem;
+      }
+
+      .step {
+        display: flex;
+        gap: 0.85rem;
+        align-items: baseline;
+      }
+
+      .step + .step {
+        margin-top: 0.75rem;
+      }
+
+      .step-num {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        font-family: 'Source Serif 4', serif;
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1;
+        transform: translateY(0.15rem);
+      }
+
+      .step p {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+      }
+
+      /* Lists */
+      .list {
+        list-style: none;
+        padding: 0;
+        margin: 0.5rem 0 0.75rem;
+      }
+
+      .list li {
+        position: relative;
+        padding-left: 1.15rem;
+        font-size: 0.95rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+      }
+
+      .list li + li { margin-top: 0.25rem; }
+
+      .list li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.7rem;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--accent-light);
+      }
+
+      .list li strong {
+        color: var(--text);
+      }
+
+      /* Pricing */
+      .pricing-grid {
+        margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .price-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      @media (max-width: 540px) {
+        .price-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .price-card {
+        padding: 1.5rem 1.75rem;
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 0.85rem;
+      }
+
+      .price-label {
+        font-family: 'Source Serif 4', serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .price-value {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: 2.2rem;
+        font-weight: 400;
+        color: var(--text);
+        margin-top: 0.35rem;
+        line-height: 1.2;
+      }
+
+      .price-unit {
+        font-family: 'Source Serif 4', serif;
+        font-size: 1rem;
+        color: var(--text-tertiary);
+      }
+
+      .price-note {
+        font-size: 0.88rem;
+        line-height: 1.65;
+        color: var(--text-tertiary);
+        margin-top: 0.6rem;
+      }
+
+      .price-card--small .price-value {
+        font-size: 1.6rem;
+      }
+
+      /* Callout */
+      .callout {
+        padding: 1.25rem 1.5rem;
+        background: var(--accent-bg);
+        border-left: 3px solid var(--accent);
+        border-radius: 0 0.6rem 0.6rem 0;
+      }
+
+      .callout .body {
+        margin-bottom: 0;
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+      }
+
+      /* Questions */
+      .questions {
+        margin-top: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .question {
+        padding: 1rem 1.25rem;
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 0.65rem;
+      }
+
+      .question-label {
+        font-family: 'Source Serif 4', serif;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.35rem;
+      }
+
+      .question-body {
+        font-size: 0.93rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+      }
+
+      /* Footer */
+      .footer {
+        margin-top: 3.5rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border-light);
+      }
+
+      .footer a {
+        font-size: 0.85rem;
+        color: var(--text-tertiary);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .footer a:hover {
+        color: var(--accent);
+      }
+    </style>
+  </body>
+</html>
