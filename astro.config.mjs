@@ -6,7 +6,7 @@ export default defineConfig({
   site: "https://holon.software",
   trailingSlash: "never",
   build: {
-    format: "directory",
+    format: "file",
   },
   vite: {
     plugins: [tailwindcss()],
